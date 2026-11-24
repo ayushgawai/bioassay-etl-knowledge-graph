@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bioassay-etl-knowledge-graph"
+version = "0.1.0"
+description = "End-to-end ETL pipeline and graph model for pharmaceutical bioassay data"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+authors = [{ name = "Ayush Gawai" }]
+dependencies = []
+
+[project.optional-dependencies]
+pandas = ["pandas>=2.0"]
+spark = ["pyspark>=3.5"]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+bioassay-etl = "bioassay_etl.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
